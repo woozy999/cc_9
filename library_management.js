@@ -105,3 +105,35 @@ class VIPPatron extends Patron {
 Section.prototype.calculateTotalBooksAvailable = function() {
     return this.getAvailableBooks();
   };
+
+//task 6
+
+//create sections
+const fiction = new Section("Fiction");
+const science = new Section("Science");
+
+// make books
+const book1 = new Book("1984", "George Orwell", "1234567890");
+const book2 = new Book("Brave New World", "Aldous Huxley", "0987654321");
+const book3 = new Book("The Selfish Gene", "Richard Dawkins", "1122334455");
+
+// add books to section
+fiction.addBook(book1);
+fiction.addBook(book2);
+science.addBook(book3);
+
+// make patrons
+const regularPatron = new Patron("John Doe");
+const vipPatron = new VIPPatron("Jane Smith", true);
+
+regularPatron.borrowBook(book1);
+
+vipPatron.borrowBook(book1);
+
+regularPatron.returnBook(book1);
+
+fiction.listBooks();
+
+//calc total avail 
+console.log(`Total available books in Fiction: ${fiction.calculateTotalBooksAvailable()}`);
+console.log(`Total available books in Science: ${science.calculateTotalBooksAvailable()}`);

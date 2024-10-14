@@ -98,3 +98,10 @@ class VIPPatron extends Patron {
       }
     }
   }
+
+//task 5
+
+//handle borrowing & returning
+Section.prototype.calculateTotalBooksAvailable = function() {
+    return this.getAvailableBooks();
+  };

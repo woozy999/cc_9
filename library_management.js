@@ -78,3 +78,23 @@ class Patron {
       }
     }
   }
+
+// task 4
+
+//create VIP class
+class VIPPatron extends Patron {
+    constructor(name, priority) {
+      super(name);
+      this.priority = priority;
+    }
+  
+    borrowBook(book) {
+      if (book.isAvailable) {
+        book.isAvailable = false;
+        this.borrowedBooks.push(book);
+        console.log(`${this.name} (VIP) borrowed "${book.title}".`);
+      } else {
+        console.log(`Sorry, "${book.title}" is already borrowed.`);
+      }
+    }
+  }

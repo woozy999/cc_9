@@ -24,3 +24,26 @@ class Book {
     }
   }
 
+// task 2
+
+//create section class
+class Section {
+    constructor(name) {
+      this.name = name;
+      this.books = [];
+    }
+  
+    addBook(book) {
+      this.books.push(book);
+    }
+  
+    getAvailableBooks() {
+      return this.books.filter(book => book.isAvailable).length;
+    }
+  
+    listBooks() {
+      this.books.forEach(book => {
+        console.log(`${book.getDetails()} - ${book.isAvailable ? 'Available' : 'Borrowed'}`);
+      });
+    }
+  }
